@@ -1,7 +1,5 @@
 package apirest.maven.cadpessoas.enums;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
