@@ -1,11 +1,14 @@
 package apirest.maven.cadpessoas.controller;
 
-import apirest.maven.cadpessoas.dto.MessageResponseDTO;
+import apirest.maven.cadpessoas.dto.request.PersonDTO;
+import apirest.maven.cadpessoas.dto.response.MessageResponseDTO;
 import apirest.maven.cadpessoas.entity.Person;
 import apirest.maven.cadpessoas.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/people")
@@ -26,7 +29,7 @@ public class PersonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createPerson(@RequestBody Person person) {
-            return this.personService.createPerson(person);
+    public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
+            return this.personService.createPerson(personDTO);
     }
 }

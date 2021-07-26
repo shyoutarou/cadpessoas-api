@@ -1,31 +1,32 @@
 package apirest.maven.cadpessoas.service;
 
-import apirest.maven.cadpessoas.dto.MessageResponseDTO;
+import apirest.maven.cadpessoas.dto.request.PersonDTO;
+import apirest.maven.cadpessoas.dto.response.MessageResponseDTO;
 import apirest.maven.cadpessoas.entity.Person;
+import apirest.maven.cadpessoas.mapper.PersonMapper;
 import apirest.maven.cadpessoas.repository.PersonRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import java.net.URI;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PersonService {
 
     private PersonRepository personRepository;
+    private final PersonMapper personMapper = PersonMapper.INSTANCE;
 
     public PersonService(PersonRepository personRepository)
     {
         this.personRepository = personRepository;
     }
 
-    public MessageResponseDTO createPerson(Person person) {
-        Person savedPerson = personRepository.save(person);
+    public MessageResponseDTO createPerson(PersonDTO personDTO) {
+        /*
+        Person personToSave = Person.builder()
+        .firstName(personDTO.getFirstName())
+        .lastName(personDTO.getLastName()).build();
+         */
+
+        Person personToSave = personMapper.toModel(personDTO);
+        Person savedPerson = personRepository.save(personToSave);
 
         return MessageResponseDTO
                 .builder()

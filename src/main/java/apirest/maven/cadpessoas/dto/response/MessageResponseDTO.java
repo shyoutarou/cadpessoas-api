@@ -1,4 +1,4 @@
-package apirest.maven.cadpessoas.dto;
+package apirest.maven.cadpessoas.dto.response;
 
 import lombok.*;
 
