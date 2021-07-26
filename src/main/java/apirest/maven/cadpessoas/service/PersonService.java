@@ -3,11 +3,13 @@ package apirest.maven.cadpessoas.service;
 import apirest.maven.cadpessoas.dto.request.PersonDTO;
 import apirest.maven.cadpessoas.dto.response.MessageResponseDTO;
 import apirest.maven.cadpessoas.entity.Person;
+import apirest.maven.cadpessoas.exception.PersonNotFoundException;
 import apirest.maven.cadpessoas.mapper.PersonMapper;
 import apirest.maven.cadpessoas.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,65 +46,44 @@ public class PersonService {
                 .collect(Collectors.toList());
     }
 
-    //private final PersonMapper personMapper = PersonMapper.INSTANCE;
+    public PersonDTO findById(long id) throws PersonNotFoundException {
+        Person person = verifyIfExists(id);
+
+        /*
+            Optional<Person> optionalperson = personRepository.findById(id);
+            if(optionalperson.isEmpty())
+            {
+                throw new PersonNotFoundException(id);
+            }
+         */
 
 
-    /*
-        public ResponseEntity<PersonDto> createPerson(PersonForm personForm, UriComponentsBuilder uriComponentsBuilder) {
-        Person savedPerson = personForm.convert();
-        personRepository.save(savedPerson);
-
-        URI uri = uriComponentsBuilder.path("/api/v1/people/{id}")
-                .buildAndExpand(savedPerson.getId())
-                .toUri();
-
-        return ResponseEntity.created(uri)
-                .body(new PersonDto(savedPerson));
+        return personMapper.toDTO(person);
     }
 
-    public List<PersonDto> listAll() {
-        List<Person> list = personRepository.findAll();
-        return PersonDto.converter(list);
+    public void delete(long id) throws PersonNotFoundException {
+        verifyIfExists(id);
+        personRepository.deleteById(id);
     }
 
-    public ResponseEntity<PersonDto> finbyId(Long id) {
-        Optional<Person> personById = personRepository.findById(id);
-        return personById.map(person -> ResponseEntity.ok(new PersonDto(person)))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public MessageResponseDTO updateById(long id, PersonDTO personDTO) throws PersonNotFoundException {
+        verifyIfExists(id);
+
+        Person personToUpdate = personMapper.toModel(personDTO);
+
+        Person updatedPerson = personRepository.save(personToUpdate);
+
+        return createMessageResponse(updatedPerson.getId(), "Update person with ID ");
     }
 
-    public ResponseEntity<PersonDto> deleteById(Long id) {
-        Optional<Person> personById = personRepository.findById(id);
-        if(personById.isPresent()) {
-            personRepository.deleteById(id);
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.notFound().build();
+    private Person verifyIfExists(long id) throws PersonNotFoundException {
+        return personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
     }
 
-    public ResponseEntity<PersonDto> findByCpf(String cpf) {
-        Person byCpf = personRepository.findByCpf(cpf);
-        Person personByCpf = personRepository.findByCpf(cpf);
-        if (personByCpf != null) {
-            return ResponseEntity.ok(new PersonDto(personByCpf));
-        }
-        return ResponseEntity.notFound().build();
+    private MessageResponseDTO createMessageResponse(Long id, String s) {
+        return MessageResponseDTO
+                .builder()
+                .message(s + id)
+                .build();
     }
-
-    public ResponseEntity<PersonDto> updateById(Long id, UpdatePersonForm personForm) {
-        Optional<Person> personById = personRepository.findById(id);
-        if (personById.isPresent()) {
-            Person person = personById.get();
-            person.setFirstName(personForm.getFirstName());
-            person.setLastName(personForm.getLastName());
-            person.setPhones(personForm.getPhones());
-
-            return ResponseEntity.ok(new PersonDto(personById.get()));
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-     */
-
-
 }
