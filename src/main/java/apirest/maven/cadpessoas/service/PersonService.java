@@ -50,6 +50,7 @@ public class PersonService {
         Person person = verifyIfExists(id);
 
         /*
+            // Para não repetir o código foi criado o metodo verifyIfExists
             Optional<Person> optionalperson = personRepository.findById(id);
             if(optionalperson.isEmpty())
             {
