@@ -22,7 +22,6 @@
   - [Executando o projeto](#executando-o-projeto)
   - [🐛 Issues](#-issues)
   - [🤝 Contribuições](#-contribuições)
-  - [Agradecimentos](#agradecimentos)
   - [📜 License](#-license)
 
 ## ❔ Sobre o projeto
@@ -33,7 +32,7 @@ Durante o evento Santander Bootcamp 2021 - Trilha Fullstack, foi desenvolvido do
 ### Web Interface
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shyoutarou/cadpessoas-api/master/.github/demo_web.gif" alt="Happy Web" width="100%" />
+  <img src="https://raw.githubusercontent.com/shyoutarou/cadpessoas-api/master/.github/demo_web.gif" alt="Spring Web" width="100%" />
 </p>
 
 ## Utilitários
@@ -85,33 +84,9 @@ Siga os passos abaixo para contribuir:
 
 7. Pronto, agora só aguardar a análise 🚀 
 
-
-## Agradecimentos
-
-<div align=center>
-  <table style="width:100%">
-    <tr align=center>
-      <th><strong>Rocketseat</strong></th>
-      <th><strong>diego3g</strong></th>
-    </tr>
-    <tr align=center>
-      <td>
-        <a href="https://rocketseat.com.br/">
-          <img width="200" height="180" src="https://user-images.githubusercontent.com/38081852/83981650-1e2e6680-a8f6-11ea-9f42-6df8fe809e4b.png">
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/diego3g">
-          <img width="200" height="180" src="https://user-images.githubusercontent.com/38081852/83981712-b7f61380-a8f6-11ea-9099-bd3677e97e39.jpg">
-        </a>
-      </td>
-    </tr>
-  </table>
-</div>
-
 ## 📜 License
 
-O projeto lançado em 2020 sobre a licença [MIT](./LICENSE) ❤️ 
+O projeto lançado em 2021 sobre a licença [MIT](./LICENSE) ❤️ 
 
 Made with ♥ by Shyoutarou
 
