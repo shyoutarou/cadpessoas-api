@@ -5,6 +5,7 @@ import apirest.maven.cadpessoas.dto.response.MessageResponseDTO;
 import apirest.maven.cadpessoas.entity.Person;
 import apirest.maven.cadpessoas.exception.PersonNotFoundException;
 import apirest.maven.cadpessoas.service.PersonService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,15 +15,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/people")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonController {
 
     private PersonService personService;
 
-    @Autowired
-    public PersonController(PersonService personService)
-    {
-        this.personService = personService;
-    }
+    //Foi adicionado o contrutor do lombok AllArgsConstructor
+    //@Autowired
+    //public PersonController(PersonService personService)
+    //{
+    //this.personService = personService;
+    //}
 
     //@GetMapping()
     //public String getBook() {

@@ -6,6 +6,8 @@ import apirest.maven.cadpessoas.entity.Person;
 import apirest.maven.cadpessoas.exception.PersonNotFoundException;
 import apirest.maven.cadpessoas.mapper.PersonMapper;
 import apirest.maven.cadpessoas.repository.PersonRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,15 +15,18 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonService {
 
     private PersonRepository personRepository;
     private final PersonMapper personMapper = PersonMapper.INSTANCE;
-
+    /*
     public PersonService(PersonRepository personRepository)
     {
-        this.personRepository = personRepository;
+    this.personRepository = personRepository;
     }
+    */
+
 
     public MessageResponseDTO createPerson(PersonDTO personDTO) {
         /*
