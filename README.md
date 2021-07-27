@@ -1,11 +1,11 @@
 # Santander Bootcamp 2021 - Trilha Fullstack
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/santander.gif" alt="NLW Intro" width="650px" />
+  <img src="https://raw.githubusercontent.com/shyoutarou/cadpessoas-api/master/.github/santander.gif" alt="cadpessoas-api" width="650px" />
 </p>
 
 <h2 align="center">
-  <img src="https://img.shields.io/badge/Next%20Level%20Week-%233-lightblue?style=for-the-badge" alt="Santander Bootcamp 2021" />
+  <img src="https://img.shields.io/badge/Santander%20Bootcamp%202021-lightblue?style=for-the-badge" alt="Santander Bootcamp 2021" />
   <img src="https://img.shields.io/badge/web%3F-OK-lightblue?style=for-the-badge" alt="Sistema web Ok" />
   <img src="https://img.shields.io/badge/License-MIT-lightblue?style=for-the-badge" alt="License MIT" />
 
@@ -18,8 +18,8 @@
   - [❔ Sobre o projeto](#-sobre-o-projeto)
   - [📸 Screenshots](#-screenshots)
     - [Web Interface](#web-interface)
-    - [***Utilitários***](#utilitários)
-    - [Executando o projeto](#executando-o-projeto)
+  - [Utilitários](#utilitários)
+  - [Executando o projeto](#executando-o-projeto)
   - [🐛 Issues](#-issues)
   - [🤝 Contribuições](#-contribuições)
   - [Agradecimentos](#agradecimentos)
@@ -33,16 +33,16 @@ Durante o evento Santander Bootcamp 2021 - Trilha Fullstack, foi desenvolvido do
 ### Web Interface
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/demo_web.gif" alt="Happy Web" width="100%" />
+  <img src="https://raw.githubusercontent.com/shyoutarou/cadpessoas-api/master/.github/demo_web.gif" alt="Happy Web" width="100%" />
 </p>
 
-### ***Utilitários***
+## Utilitários
 
 - IDE: **[IntelliJ](https://www.jetbrains.com/pt-br/idea/)** 
 - Banco de Dados: **[Spring Data JPA](https://spring.io/projects/spring-data-jpa)**
 - Teste de API: **[Postman](https://www.postman.com/)**
 
-### Executando o projeto
+## Executando o projeto
 
 Primeiro, clone o repositório para seu ambiente:
 
